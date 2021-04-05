@@ -6,16 +6,18 @@ runit.sh - runs the docker image
 
 MySql server isn't setup, but is installed, and ready to run
 
-You can start the MySQL daemon with:
-```cd /usr ; /usr/bin/mysqld_safe &```
+The following isn't really tested, but may help. I think it's what I did ;-)
 
-You can test the MySQL daemon with mysql-test-run.pl
-```cd mysql-test ; perl mysql-test-run.pl```
+## You can start the MySQL daemon with:
+- ```cd /usr ; /usr/bin/mysqld_safe &```
 
-Secure your installation by running:
-``` $ /usr/bin/mysql_secure_installation```
+## You can test the MySQL daemon with mysql-test-run.pl
+- ```cd mysql-test ; perl mysql-test-run.pl```
 
-PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
+## Secure your installation by running:
+- ``` $ /usr/bin/mysql_secure_installation```
+
+## PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
 - To do so, start the server, then issue the following commands:
-```/usr/bin/mysqladmin -u root password 'new-password'```
-```/usr/bin/mysqladmin -u root -h 46b3dfa0caaf password 'new-password'```
+- ```/usr/bin/mysqladmin -u root password 'new-password'```
+- ```/usr/bin/mysqladmin -u root -h 46b3dfa0caaf password 'new-password'```
