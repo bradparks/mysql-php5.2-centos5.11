@@ -1,7 +1,5 @@
 FROM ncareol/centos:5.11-0
 
-ENV PHP_VERSION 5.2.17
-
 ENV PACKAGES_KEEP gtk+ libX11.i386 netcdf.i386 libgcc.i386 fonts-ISO8859-2
 ENV PACKAGES gcc gcc-gfortran pkgconfig make glibc-utils glibc-devel ncurses-devel
 ENV PACKAGES_i386 gtk+-devel.i386 glibc-devel.i386 glib-devel.i386 libXi-devel.i386 libXext-devel.i386 libX11-devel.i386  netcdf-devel.i386
@@ -31,12 +29,13 @@ RUN yum install -y \
   mysql-devel \
   openssl-devel \
   sqlite-devel
+
+COPY other/php-5.2.17.tar.gz /usr/local/src/ 
 WORKDIR /usr/local/src
 
 # PHP 5.2 installation
-ADD http://museum.php.net/php5/php-${PHP_VERSION}.tar.bz2 /usr/local/src/
-RUN tar xf ./php-${PHP_VERSION}.tar.bz2 -C ./
-WORKDIR /usr/local/src/php-${PHP_VERSION}
+RUN tar xf ./php-5.2.17.tar.bz2 -C ./
+WORKDIR /usr/local/src/php-5.2.17
 RUN ./configure \
   --enable-gd-native-ttf \
   --enable-mbregex \
